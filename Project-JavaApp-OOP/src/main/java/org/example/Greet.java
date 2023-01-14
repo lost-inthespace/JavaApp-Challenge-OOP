@@ -1,4 +1,5 @@
 package org.example;
+
 import java.awt.*;
 import java.util.regex.Pattern;
 import java.util.Scanner;
@@ -10,12 +11,13 @@ public class Greet {
         return Pattern.matches(".*[@#$%^&*].*", input);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Scanner input = new Scanner(System.in);
         System.out.println("Hi! may i know whats your name?");
+        Thread.sleep(1250);
         String name = "";
         boolean con = true;
-        System.out.println("please refer your gender\n(b/g))");
+        System.out.println("please type your gender or its first letter\n(male/female)");
         String gender = input.next();
         System.out.println("please enter valid name:");
         while (con) {
@@ -37,7 +39,7 @@ public class Greet {
         panel.setBackground(Color.LIGHT_GRAY);
         panel.setLayout(new FlowLayout(FlowLayout.CENTER));
         String ShowHiWithG = "";
-        if(gender.equalsIgnoreCase("b")){
+        if(gender.equalsIgnoreCase("m") || gender.equalsIgnoreCase("male")){
             ShowHiWithG = "👨👋";
         }else{
             ShowHiWithG = "👩👋";
@@ -50,7 +52,7 @@ public class Greet {
         label.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         label.setPreferredSize(new Dimension(600,200));
         label.setHorizontalAlignment(JLabel.CENTER);
-        label.setFont(new Font("Arial", Font.BOLD, 36));
+        label.setFont(new Font("Arial", Font.BOLD, 30));
 
         panel.add(label);
         frame.add(panel);
